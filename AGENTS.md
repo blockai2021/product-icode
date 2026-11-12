@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project architecture
+- Content pages use individual TanStack file routes and a shared SiteShell; this keeps navigation typed and every page independently addressable.
+- Keep demonstrations browser-local without storage or network submissions; the requested simulated experience must not collect real personal data.
+- Share channel service logic in product-demo.ts and visuals in reusable presentation modules; this keeps purchase-channel behavior consistent across demos.
+- Define presentation colors and layouts in src/styles.css with semantic OKLCH tokens; this keeps all pages visually consistent.
