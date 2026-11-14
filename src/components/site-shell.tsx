@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowRight, Globe2, Menu, X, Check, ScanLine } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Globe2, Menu, X, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "./brand-logo";
 export type Locale = "zh" | "en" | "de";
 const LocaleContext = createContext<Locale>("zh");
 export function useCopy() {
@@ -151,11 +152,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <header className="site-header">
         <div className="header-inner">
           <Link to="/" className="brand">
-            <span className="brand-symbol">
-              <ScanLine size={25} />
-            </span>
             <span>
-              Product <b>iCode</b>
+              <BrandLogo />
               <small>CONNECT PRODUCTS. CONNECT EUROPE.</small>
             </span>
           </Link>
@@ -204,12 +202,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <footer className="site-footer">
         <div className="footer-top">
           <Link to="/" className="brand">
-            <span className="brand-symbol">
-              <ScanLine />
-            </span>
-            <span>
-              Product <b>iCode</b>
-            </span>
+            <BrandLogo />
           </Link>
           <p>One Code. Every Channel. Local Growth.</p>
           <div>

@@ -21,6 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import product from "@/assets/powertool-x200.jpg";
 import { useCopy } from "./site-shell";
+import { BrandLogo } from "./brand-logo";
 import { channels, channelServices, type Channel } from "@/lib/product-demo";
 export { product };
 const nodes = [
@@ -69,7 +70,7 @@ export function ProductPhone({
         <span>••• ▰</span>
       </div>
       <div className="phone-brand">
-        <ScanLine size={13} /> Product iCode <Globe2 size={12} />
+        <BrandLogo className="phone-brand-logo" /> <Globe2 size={12} />
       </div>
       <div className="phone-product">
         <img src={product} alt="PowerTool X200 无绳电钻" width={1024} height={1024} />
@@ -188,7 +189,7 @@ export function ChannelNetwork() {
           </span>
         </div>
         <div className="network-center">
-          <ScanLine />
+          <img className="brand-icon network-brand-icon" src="/brand/product-icode/04_Icon_Only.png" alt="" width={638} height={608} />
           <strong>
             Product iCode <span>Connect</span>
           </strong>

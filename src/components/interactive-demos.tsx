@@ -325,7 +325,7 @@ export function TeamArchitecture() {
         )}
       </div>
       <div className="team-platform">
-        <ScanLine />
+        <img className="brand-icon team-brand-icon" src="/brand/product-icode/04_Icon_Only.png" alt="" width={638} height={608} />
         <h3>Product iCode Connect</h3>
         <div>产品数字身份 · GS1 Digital Link</div>
         <div>数据审核工作流 · 多渠道内容管理</div>
@@ -720,7 +720,7 @@ export function ConsumerPage({ industry }: { industry: string }) {
       <div className="consumer-app">
         <div className="consumer-app-top">
           <span>
-            <ScanLine />
+            <img className="brand-icon consumer-brand-icon" src="/brand/product-icode/04_Icon_Only.png" alt="" width={638} height={608} />
             Product iCode Connect
           </span>
           <select

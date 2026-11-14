@@ -34,3 +34,4 @@ use the editor.
 - Keep demonstrations browser-local without storage or network submissions; the requested simulated experience must not collect real personal data.
 - Share channel service logic in product-demo.ts and visuals in reusable presentation modules; this keeps purchase-channel behavior consistent across demos.
 - Define presentation colors and layouts in src/styles.css with semantic OKLCH tokens; this keeps all pages visually consistent.
+- Serve company logo originals from public/brand/product-icode through a shared BrandLogo; local static references keep the uploaded artwork consistent across pages.
