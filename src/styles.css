@@ -33,17 +33,12 @@
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.96 0.022 251);
   --muted: oklch(0.977 0.006 247);
-  --muted-foreground: oklch(0.55 0.025 251);
+  --muted-foreground: oklch(0.43 0.025 251);
   --border: oklch(0.915 0.012 250);
   --card: oklch(1 0 0);
-  --teal: oklch(0.6 0.12 181);
+  --teal: oklch(0.43 0.08 181);
   --teal-soft: oklch(0.962 0.024 179);
-  --amber: oklch(0.73 0.14 75);
-  --amber-soft: oklch(0.98 0.026 86);
   --destructive: oklch(0.59 0.19 26);
-  --logo-red: oklch(0.55 0.22 25);
-  --logo-yellow: oklch(0.78 0.17 80);
-  --logo-green: oklch(0.6 0.14 143);
   --ink: oklch(0.2 0.026 250);
   --shadow-soft: 0 12px 40px oklch(0.35 0.04 250 / 0.07);
   --shadow-phone: 0 16px 32px oklch(0.25 0.04 250 / 0.16);
@@ -729,7 +724,7 @@ a:focus-visible {
 }
 .amazon-logo > span {
   position: absolute;
-  color: var(--amber);
+  color: var(--primary);
   font-size: 34px;
   bottom: -19px;
   left: 22px;
@@ -738,7 +733,7 @@ a:focus-visible {
 .mediamarkt-logo {
   font-weight: 750;
   font-style: italic;
-  color: var(--logo-red);
+  color: var(--primary);
 }
 .ebay-logo {
   font-weight: 500 !important;
@@ -748,16 +743,16 @@ a:focus-visible {
   font-style: normal;
 }
 .ebay-logo > i:nth-child(1) {
-  color: var(--logo-red);
+  color: var(--primary);
 }
 .ebay-logo > i:nth-child(2) {
   color: var(--primary);
 }
 .ebay-logo > i:nth-child(3) {
-  color: var(--logo-yellow);
+  color: var(--primary);
 }
 .ebay-logo > i:nth-child(4) {
-  color: var(--logo-green);
+  color: var(--teal);
 }
 .shopify-logo {
   font-style: italic;
@@ -767,7 +762,7 @@ a:focus-visible {
   gap: 7px;
 }
 .shopify-logo > svg {
-  color: var(--logo-green);
+  color: var(--teal);
   height: 29px;
 }
 .channel-logos > span {
@@ -1030,7 +1025,7 @@ a:focus-visible {
   color: var(--ink);
 }
 .mark-1 {
-  color: var(--logo-red);
+  color: var(--primary);
   font-size: 13px;
   font-style: italic;
 }
@@ -1041,7 +1036,7 @@ a:focus-visible {
 }
 .mark-3 {
   font-style: italic;
-  color: var(--logo-green);
+  color: var(--teal);
 }
 .network-detail {
   display: flex;
@@ -1082,7 +1077,7 @@ a:focus-visible {
   background: var(--teal);
 }
 .line-legend > span:nth-child(3):before {
-  background: var(--amber);
+  background: var(--primary);
 }
 .compliance-section {
   background: var(--muted);
@@ -2207,8 +2202,8 @@ form > button {
 }
 .status-Revision-Required,
 .status-Pending {
-  color: var(--amber);
-  background: var(--amber-soft);
+  color: var(--primary);
+  background: var(--secondary);
 }
 .status-control {
   display: flex;
@@ -4155,3 +4150,107 @@ td > svg {
     bottom: 7px;
   }
 }
+
+/* Consolidated company navigation and trust pages. */
+.solutions-trigger { font-size: 13px; color: var(--muted-foreground); }
+.solutions-trigger.active { color: var(--primary); }
+.solutions-dropdown { width: 342px; max-width: calc(100vw - 32px); padding: 8px; }
+.solution-link { padding: 13px 10px; gap: 12px; }
+.solution-link > svg { color: var(--primary); }
+.solution-link > svg:last-child { margin-left: auto; }
+.solution-link b, .solution-link small { display: block; }
+.solution-link small { font-size: 11px; line-height: 1.6; color: var(--muted-foreground); margin-top: 4px; white-space: normal; }
+.mobile-nav-cta { display: none; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.25fr; gap: 36px; }
+.footer-grid > div { min-width: 0; }
+.footer-grid h3 { font-size: 13px; margin-bottom: 18px; }
+.footer-grid a:not(.brand) { display: flex; align-items: center; gap: 5px; font-size: 12px; margin: 13px 0; }
+.footer-grid a:hover { color: var(--primary); }
+.footer-grid button { padding-left: 0; font-size: 12px; }
+.footer-grid small, .footer-brand > span { font-size: 10px; color: var(--muted-foreground); }
+.footer-brand .brand-logo { width: 200px; max-width: 100%; }
+.footer-brand p { margin: 17px 0 12px; font-size: 12px; }
+.company-intro { border-bottom: 1px solid var(--border); }
+.company-intro h1 { font-size: 44px; color: var(--primary); margin-bottom: 18px; }
+.company-intro p { max-width: 750px; margin: 22px 0; }
+.company-section > p { margin: 18px 0; max-width: 800px; }
+.company-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 32px; }
+.company-pillars article { border-top: 2px solid var(--primary); padding-top: 24px; }
+.company-pillars svg { color: var(--teal); margin-bottom: 16px; }
+.company-pillars h3 { margin-bottom: 12px; }
+.company-pillars p { font-size: 13px; }
+.company-locations { background: var(--muted); max-width: none; padding-inline: max(44px, calc((100vw - 1232px) / 2)); }
+.company-contact { min-height: 540px; }
+.company-contact h1, .legal-page h1 { font-size: 32px; margin-bottom: 22px; }
+.company-contact-actions { display: flex; gap: 14px; margin: 30px 0; flex-wrap: wrap; }
+.company-legal-link { color: var(--primary); }
+.legal-page { max-width: 1160px; }
+.legal-draft { background: var(--secondary); border-left: 3px solid var(--primary); padding: 22px; margin: 25px 0 42px; }
+.legal-draft p { margin-top: 10px; font-size: 12px; }
+.legal-section { border-top: 1px solid var(--border); padding: 28px 0; }
+.legal-section h2 { font-size: 19px; margin-bottom: 18px; }
+.legal-bilingual { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.legal-bilingual p { font-size: 13px; overflow-wrap: anywhere; }
+.legal-provider-links, .legal-navigation { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 28px; font-size: 12px; color: var(--primary); }
+.channel-band, .network-wrap { position: relative; }
+.channel-band { padding-top: 47px; }
+.illustrative-badge { display: inline-flex; font-size: 10px !important; font-weight: 650; color: var(--primary) !important; background: var(--secondary); border: 1px solid var(--border); padding: 6px 9px; border-radius: 4px; }
+.channel-band > .illustrative-badge { position: absolute; top: 10px; right: 12px; }
+.network-wrap > .illustrative-badge { display: flex; width: max-content; margin: 10px 10px 0 auto; }
+.package-scale { min-height: 40px; color: var(--foreground); }
+#pricing { scroll-margin-top: 24px; }
+.phone-scan-beam { position: absolute; inset: 35px 8px auto; height: 1px; background: var(--teal); opacity: 0; z-index: 2; pointer-events: none; animation: phone-scan 3s ease-in-out infinite; }
+.scan-qr { overflow: hidden; }
+.scan-qr::after { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: var(--teal); animation: qr-scan 3s ease-in-out infinite; }
+@keyframes phone-scan { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: .65; } 85% { opacity: .65; } 100% { transform: translateY(210px); opacity: 0; } }
+@keyframes qr-scan { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(48px); opacity: 0; } }
+.reveal-ready:not(.reveal-visible) { opacity: 0; transform: translateY(12px); }
+.reveal-ready { transition: opacity 250ms ease, transform 250ms ease; }
+.reveal-visible .feature-card:nth-child(2), .reveal-visible .industry-card:nth-child(2) { animation: item-enter 250ms 100ms both; }
+.reveal-visible .feature-card:nth-child(3), .reveal-visible .industry-card:nth-child(3) { animation: item-enter 250ms 200ms both; }
+.reveal-visible .feature-card:nth-child(4), .reveal-visible .industry-card:nth-child(4) { animation: item-enter 250ms 300ms both; }
+@keyframes item-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.home-workflow .workflow-step { opacity: .45; transform: translateY(6px); transition: opacity 250ms ease, transform 250ms ease; }
+.home-workflow .step-lit { opacity: 1; transform: translateY(0); }
+.home-workflow .step-lit .step-number { background: var(--primary); color: var(--primary-foreground); }
+.rolling-metric { line-height: 1.25; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.metric-digits { display: inline-flex; }
+.metric-digit { display: inline-block; height: 1.25em; width: .7em; overflow: hidden; }
+.metric-digit-strip { display: flex; flex-direction: column; transition: transform 900ms cubic-bezier(.2,.75,.25,1); }
+.metric-digit-strip > span { display: block; height: 1.25em; line-height: 1.25em; }
+.metric-visible .digit-0 { transform: translateY(0); }
+.metric-visible .digit-1 { transform: translateY(-1.25em); }
+.metric-visible .digit-2 { transform: translateY(-2.5em); }
+.metric-visible .digit-3 { transform: translateY(-3.75em); }
+.metric-visible .digit-4 { transform: translateY(-5em); }
+.metric-visible .digit-5 { transform: translateY(-6.25em); }
+.metric-visible .digit-6 { transform: translateY(-7.5em); }
+.metric-visible .digit-7 { transform: translateY(-8.75em); }
+.metric-visible .digit-8 { transform: translateY(-10em); }
+.metric-visible .digit-9 { transform: translateY(-11.25em); }
+.metrics-grid > div:has(.metric-visible) > b { display: block; animation: item-enter 250ms both; }
+@media (max-width: 800px) {
+ .mobile-nav-cta { display: block; padding: 12px; }
+ .solutions-trigger { justify-content: space-between; width: 100%; padding: 13px; height: 46px; }
+ .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 22px; }
+ .company-pillars, .legal-bilingual { grid-template-columns: 1fr; }
+ .company-intro h1 { font-size: 34px; }
+ .company-locations { padding-inline: 22px; }
+ .home-workflow { grid-template-columns: 1fr; gap: 22px; }
+ .home-workflow .workflow-step { opacity: 1; transform: none; }
+ .home-workflow .workflow-arrow { display: none; }
+ .hero-buttons { flex-wrap: wrap; }
+ .compact-analytics .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .compact-analytics .metrics-grid > div:nth-child(3) { border: 0; padding-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .phone-scan-beam, .scan-qr::after { display: none; }
+ .reveal-ready, .home-workflow .workflow-step { opacity: 1 !important; transform: none !important; }
+ .metric-digit-strip { transition: none; }
+}
+
+.solutions-nav { position: relative; }
+.solutions-dropdown { position: absolute; top: calc(100% + 10px); left: 0; z-index: 50; background: var(--background); border: 1px solid var(--border); border-radius: 6px; box-shadow: var(--shadow-soft); }
+.solution-link { display: flex; align-items: center; border-radius: 4px; }
+.solution-link:hover, .solution-link:focus-visible { background: var(--secondary); }
+@media (max-width: 800px) { .solutions-dropdown { position: static; width: 100%; margin: 4px 0 8px; } }

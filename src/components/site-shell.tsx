@@ -1,8 +1,9 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowRight, Globe2, Menu, X, Check } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Globe2, Menu, X, Check, ChevronDown, ScanLine, ShieldCheck, Users, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BrandLogo } from "./brand-logo";
+import { SiteMotion } from "./site-motion";
 export type Locale = "zh" | "en" | "de";
 const LocaleContext = createContext<Locale>("zh");
 export function useCopy() {
@@ -138,14 +139,23 @@ export function QuoteButton({
   );
 }
 const nav = [
-  { to: "/channels", zh: "一码多渠道", en: "Channels", de: "Vertriebskanäle" },
-  { to: "/compliance", zh: "欧洲合规", en: "Compliance", de: "Compliance" },
-  { to: "/growth", zh: "本地增长", en: "Local growth", de: "Lokales Wachstum" },
-  { to: "/dashboard", zh: "品牌管理", en: "Dashboard", de: "Dashboard" },
+  { to: "/channels", zh: "一码多渠道", en: "Channels", de: "Vertriebskanäle", icon: ScanLine, desc: "统一产品身份，连接销售触点。", enDesc: "One identity across sales touchpoints." },
+  { to: "/compliance", zh: "欧洲合规", en: "Compliance", de: "Compliance", icon: ShieldCheck, desc: "产品资料与专业审核有序协同。", enDesc: "Coordinate product data and review." },
+  { to: "/growth", zh: "本地增长", en: "Local growth", de: "Lokales Wachstum", icon: Users, desc: "以服务连接欧洲本地社群。", enDesc: "Connect local communities through service." },
+  { to: "/dashboard", zh: "品牌看板", en: "Brand dashboard", de: "Dashboard", icon: BarChart3, desc: "查看产品连接与品牌互动数据。", enDesc: "View product and engagement demo data." },
 ] as const;
 export function SiteShell({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>("zh");
   const [menu, setMenu] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const solutionsRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const dismiss = (event: PointerEvent) => {
+      if (event.target instanceof Node && !solutionsRef.current?.contains(event.target)) setSolutionsOpen(false);
+    };
+    document.addEventListener("pointerdown", dismiss);
+    return () => document.removeEventListener("pointerdown", dismiss);
+  }, []);
   const path = useLocation().pathname;
   return (
     <LocaleContext.Provider value={locale}>
@@ -158,19 +168,16 @@ export function SiteShell({ children }: { children: ReactNode }) {
             </span>
           </Link>
           <nav className={menu ? "main-nav is-open" : "main-nav"} aria-label="主导航">
-            <Link to="/" className={path === "/" ? "active" : ""} onClick={() => setMenu(false)}>
-              {locale === "zh" ? "首页" : locale === "de" ? "Start" : "Overview"}
-            </Link>
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                className={path === n.to ? "active" : ""}
-                onClick={() => setMenu(false)}
-              >
-                {n[locale]}
-              </Link>
-            ))}
+            <div className="solutions-nav" ref={solutionsRef} onKeyDown={(event) => {
+              if (event.key === "Escape") { setSolutionsOpen(false); solutionsRef.current?.querySelector("button")?.focus(); }
+            }}>
+              <Button variant="ghost" aria-expanded={solutionsOpen} aria-controls="solutions-links" onClick={() => setSolutionsOpen((open) => !open)} className={nav.some(n => n.to === path) ? "solutions-trigger active" : "solutions-trigger"}>{locale === "zh" ? "解决方案" : locale === "de" ? "Lösungen" : "Solutions"}<ChevronDown size={14} /></Button>
+              {solutionsOpen && <div id="solutions-links" className="solutions-dropdown">
+                {nav.map(n => <Link key={n.to} to={n.to} onClick={() => { setMenu(false); setSolutionsOpen(false); }} className="solution-link"><n.icon /><span><b>{n[locale]}</b><small>{locale === "zh" ? n.desc : n.enDesc}</small></span><ArrowUpRight size={14} /></Link>)}
+              </div>}
+            </div>
+            <Link to="/about" className={path === "/about" ? "active" : ""} onClick={() => setMenu(false)}>{locale === "zh" ? "关于我们" : locale === "de" ? "Über uns" : "About us"}</Link>
+            <div className="mobile-nav-cta"><QuoteButton>{locale === "zh" ? "预约演示" : "Book a demo"}</QuoteButton></div>
           </nav>
           <div className="header-actions">
             <Globe2 size={15} />
@@ -191,6 +198,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               variant="ghost"
               size="icon"
               aria-label="菜单"
+              aria-expanded={menu}
               onClick={() => setMenu(!menu)}
             >
               {menu ? <X /> : <Menu />}
@@ -198,20 +206,13 @@ export function SiteShell({ children }: { children: ReactNode }) {
           </div>
         </div>
       </header>
-      <main>{children}</main>
+      <main>{children}<SiteMotion /></main>
       <footer className="site-footer">
-        <div className="footer-top">
-          <Link to="/" className="brand">
-            <BrandLogo />
-          </Link>
-          <p>One Code. Every Channel. Local Growth.</p>
-          <div>
-            <Link to="/demo">
-              产品 Demo <ArrowUpRight size={14} />
-            </Link>
-            <Link to="/compliance">合规与数据</Link>
-            <QuoteButton variant="ghost">联系我们</QuoteButton>
-          </div>
+        <div className="footer-grid">
+          <div className="footer-brand"><Link to="/" className="brand"><BrandLogo /></Link><p>One Code. Every Channel.<br />Local Growth.</p><span>中国 × 德国 · 连接欧洲</span></div>
+          <div><h3>{locale === "zh" ? "解决方案" : "Solutions"}</h3>{nav.map(n => <Link to={n.to} key={n.to}>{n[locale]}</Link>)}<Link to="/demo">{locale === "zh" ? "产品演示" : "Product demo"}<ArrowUpRight size={13} /></Link></div>
+          <div><h3>{locale === "zh" ? "公司" : "Company"}</h3><Link to="/about">{locale === "zh" ? "关于我们" : "About us"}</Link><Link to="/contact">{locale === "zh" ? "联系我们" : "Contact us"}</Link><QuoteButton variant="ghost">{locale === "zh" ? "预约演示" : "Book a demo"}</QuoteButton></div>
+          <div><h3>{locale === "zh" ? "法务与信任" : "Legal & trust"}</h3><Link to="/privacy">隐私政策 / Privacy Policy</Link><Link to="/impressum">Impressum</Link><Link to="/terms">服务条款 / Terms</Link><small>{locale === "zh" ? "法定信息待核实补充" : "Legal details pending verification"}</small></div>
         </div>
         <div className="footer-bottom">
           <span>© 2026 Product iCode. All rights reserved.</span>

@@ -88,16 +88,10 @@ export function HomePage() {
               )}
             </p>
             <div className="hero-buttons">
-              <Button asChild size="lg">
-                <Link to="/demo">
-                  <ScanLine />
-                  {t("体验产品 Demo", "Explore product demo", "Produktdemo erleben")}
-                  <ArrowRight />
-                </Link>
-              </Button>
-              <QuoteButton variant="outline">
-                {t("预约产品演示", "Book a demo", "Demo buchen")}
-              </QuoteButton>
+              <Button size="lg" onClick={() => {
+                document.getElementById("pricing")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+              }}>{t("获取专属方案", "Get your tailored plan", "Individuellen Plan erhalten")}<ArrowRight /></Button>
+              <Button asChild variant="outline" size="lg"><Link to="/demo"><ScanLine />{t("查看 3 分钟演示", "View 3-minute demo", "3-Minuten-Demo ansehen")}</Link></Button>
             </div>
             <div className="hero-proof">
               <span>
@@ -149,13 +143,7 @@ export function HomePage() {
               {t("本地经销商", "Local distributors", "Lokale Händler")}
             </span>
           </div>
-          <small>
-            {t(
-              "渠道连接场景示意，不代表官方合作或已完成集成",
-              "Illustrative channel scenarios, not official partnerships or live integrations",
-              "Illustrative Szenarien, keine offiziellen Partnerschaften oder aktiven Integrationen",
-            )}
-          </small>
+          <span className="illustrative-badge">Illustrative Demo · 场景示意</span>
         </div>
       </section>
       <section className="section capabilities">
@@ -253,9 +241,9 @@ export function HomePage() {
         <p className="section-intro">
           中国准备产品资料，欧洲协调专业审核。每一步都有明确责任，每一次更新都有迹可循。
         </p>
-        <div className="workflow-strip">
+        <div className="workflow-strip home-workflow">
           {workflow.map((s, i) => (
-            <div key={s}>
+            <div key={s} className="workflow-step">
               <span className={i < 2 ? "step-number china" : "step-number"}>0{i + 1}</span>
               <h4>{s}</h4>
               <small>{owners[i]}</small>
@@ -348,12 +336,12 @@ export function HomePage() {
           </Button>
         </div>
         <div className="growth-home-grid">
-          <GrowthWheel />
+          <GrowthWheel sequencePrefix="G" />
           <div>
             <h3>把一次扫码，变成持续的品牌连接</h3>
             <p>从产品服务到自愿加入社群，从本地互动到复购与反馈，以真实用户关系建立可持续增长。</p>
             <AnalyticsPanel compact />
-            <small>Demo Data · 所有社群与市场网络均为未来运营场景示意。</small>
+            <DemoBadge />
           </div>
         </div>
       </section>
@@ -428,7 +416,7 @@ export function HomePage() {
           ))}
         </div>
       </section>
-      <section className="section pricing-section">
+      <section className="section pricing-section" id="pricing">
         <div className="center-heading">
           <span className="eyebrow">A CONNECTION THAT GROWS WITH YOU</span>
           <h2>
@@ -443,14 +431,15 @@ export function HomePage() {
         <div className="pricing-grid">
           {packages.map((p, i) => (
             <div className={`pricing-card ${i === 1 ? "featured" : ""}`} key={p.name}>
-              {i === 1 && <span className="package-label">合规与连接，一体协同</span>}
+              {i === 1 && <span className="package-label">推荐</span>}
               <span className="package-icon">
                 {i === 0 ? <ScanLine /> : i === 1 ? <ShieldCheck /> : <Users />}
               </span>
               <h3>{p.name}</h3>
               <p>{p.summary}</p>
+              <p className="package-scale">{t(["适合起步阶段、少量 SKU 的品牌", "适合多 SKU 成长期品牌", "适合全品类成熟品牌"][i] ?? "", ["For early-stage brands with a small product range", "For growing, multi-SKU brands", "For established, full-range brands"][i] ?? "")}</p>
               <div className="quote-price">
-                按需定制 <small>获取专属方案与报价</small>
+                {t("定制报价", "Custom quote")} <small>{t("按产品范围与目标市场评估", "Based on product scope and target markets")}</small>
               </div>
               {p.features.map((f) => (
                 <div className="feature-check" key={f}>

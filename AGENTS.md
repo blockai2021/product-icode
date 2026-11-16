@@ -35,3 +35,6 @@ use the editor.
 - Share channel service logic in product-demo.ts and visuals in reusable presentation modules; this keeps purchase-channel behavior consistent across demos.
 - Define presentation colors and layouts in src/styles.css with semantic OKLCH tokens; this keeps all pages visually consistent.
 - Serve company logo originals from public/brand/product-icode through a shared BrandLogo; local static references keep the uploaded artwork consistent across pages.
+
+- Company and legal content uses shared browser-safe presentation modules and individual leaf routes; verified legal facts must replace clearly labelled drafts before final legal publication.
+- Decorative motion uses intersection observation and transform/opacity with reduced-motion fallbacks; numeric demo values stay stable in accessibility labels.

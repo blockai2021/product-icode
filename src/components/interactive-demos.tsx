@@ -31,6 +31,7 @@ import {
   Filter,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { RollingMetric } from "./site-motion";
 import { PageHeading, DemoBadge, useCopy } from "./site-shell";
 import { product, ChannelNetwork, ChannelExperience, DataLayers } from "./product-visuals";
 import {
@@ -61,7 +62,7 @@ const explanations = [
   "持续关系带来再次购买的可能。",
   "用户自愿反馈，帮助品牌改善产品。",
 ];
-export function GrowthWheel() {
+export function GrowthWheel({ sequencePrefix = "" }: { sequencePrefix?: string }) {
   const [active, setActive] = useState(3);
   return (
     <div className="growth-wheel">
@@ -97,7 +98,7 @@ export function GrowthWheel() {
       })}
       <div className="wheel-description">
         <span>
-          0{active + 1} / {growthSteps[active]}
+          {sequencePrefix}0{active + 1} / {growthSteps[active]}
         </span>
         <p>{explanations[active]}</p>
       </div>
@@ -194,7 +195,7 @@ export function AnalyticsPanel({ compact = false }: { compact?: boolean }) {
               {m.zh}
               <small>{m.name}</small>
             </span>
-            <strong>{Math.round(m.v * ratio).toLocaleString("en-US")}</strong>
+            <RollingMetric key={period} value={Math.round(m.v * ratio)} />
             <b>
               ↗ {m.up}
               <small> vs 上期</small>

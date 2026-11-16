@@ -64,6 +64,7 @@ export function ProductPhone({
   const t = useCopy();
   return (
     <div className={compact ? "phone compact-phone" : "phone"}>
+      <span className="phone-scan-beam" aria-hidden="true" />
       <div className="phone-island" />
       <div className="phone-top">
         <span>9:41</span>
@@ -138,7 +139,7 @@ export function EcosystemVisual() {
       </svg>
       <div className="physical-product">
         <img src={product} alt="电钻与带二维码的产品包装" width={1024} height={1024} />
-        <div className="qr-tile">
+        <div className="qr-tile scan-qr">
           <QRCodeSVG value="https://id.gs1.org/01/09506000134352" size={40} />
           <ScanLine size={14} />
         </div>
@@ -178,6 +179,7 @@ export function ChannelNetwork() {
   const options = ["Amazon", "MediaMarkt", "eBay", "Shopify", "欧洲线下零售", "本地经销商"];
   return (
     <div className="network-wrap">
+      <span className="illustrative-badge">Illustrative Demo · 场景示意</span>
       <div className="network-diagram">
         <svg viewBox="0 0 800 430" className="network-lines" aria-hidden="true">
           <path d="M400 100 V165 M180 115 L330 190 M620 115 L470 190 M155 255 H330 M645 255 H470 M220 370 L350 290 M580 370 L450 290" />
@@ -227,7 +229,7 @@ export function ChannelNetwork() {
             "Product mapping · Digital label · Consumer services",
           )}
         </span>
-        <small>模拟连接</small>
+
       </div>
       <div className="line-legend">
         <span>商品主数据</span>

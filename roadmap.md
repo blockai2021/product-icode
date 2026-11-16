@@ -4,3 +4,8 @@
 - [x] Verify mobile/desktop, demo interactions and policy tests.
 - [x] Replace company logos with ZIP originals and verify desktop/mobile headers, footers and favicon.
 - [ ] Confirm GitHub repository mapping; blocked because only internal Lovable Git remotes are available and no GitHub repository link was provided.
+- [x] Add legal drafts, company/contact pages and four-column footer.
+- [x] Consolidate navigation into solutions dropdown and company link.
+- [x] Refine two-color palette, typography, numbering and demo badges.
+- [x] Add CTA, scan/reveal/workflow/metric motion and quote-based packages; verify desktop/mobile and reduced motion.
+- [ ] Complete legal entity details; blocked pending verified company name, address, contact and representative.
