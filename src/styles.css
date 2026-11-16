@@ -1828,6 +1828,9 @@ a:focus-visible {
   padding: 0 18px;
   height: 41px;
 }
+.closing-section > div:last-child > a {
+  color: var(--primary-foreground);
+}
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 36px max(44px, calc((100vw - 1232px) / 2)) 23px;
