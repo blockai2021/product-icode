@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CasesRouteImport } from './routes/cases'
 import { Route as ChannelsRouteImport } from './routes/channels'
 import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -18,7 +19,9 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemoRouteImport } from './routes/demo'
 import { Route as GrowthRouteImport } from './routes/growth'
 import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +32,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasesRoute = CasesRouteImport.update({
+  id: '/cases',
+  path: '/cases',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChannelsRoute = ChannelsRouteImport.update({
@@ -66,9 +74,19 @@ const ImpressumRoute = ImpressumRouteImport.update({
   path: '/impressum',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsRoute = TermsRouteImport.update({
@@ -80,6 +98,7 @@ const TermsRoute = TermsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cases': typeof CasesRoute
   '/channels': typeof ChannelsRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
@@ -87,12 +106,15 @@ export interface FileRoutesByFullPath {
   '/demo': typeof DemoRoute
   '/growth': typeof GrowthRoute
   '/impressum': typeof ImpressumRoute
+  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
+  '/resources': typeof ResourcesRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cases': typeof CasesRoute
   '/channels': typeof ChannelsRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
@@ -100,13 +122,16 @@ export interface FileRoutesByTo {
   '/demo': typeof DemoRoute
   '/growth': typeof GrowthRoute
   '/impressum': typeof ImpressumRoute
+  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
+  '/resources': typeof ResourcesRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cases': typeof CasesRoute
   '/channels': typeof ChannelsRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
@@ -114,7 +139,9 @@ export interface FileRoutesById {
   '/demo': typeof DemoRoute
   '/growth': typeof GrowthRoute
   '/impressum': typeof ImpressumRoute
+  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
+  '/resources': typeof ResourcesRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
@@ -122,6 +149,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/cases'
     | '/channels'
     | '/compliance'
     | '/contact'
@@ -129,12 +157,15 @@ export interface FileRouteTypes {
     | '/demo'
     | '/growth'
     | '/impressum'
+    | '/industries'
     | '/privacy'
+    | '/resources'
     | '/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/cases'
     | '/channels'
     | '/compliance'
     | '/contact'
@@ -142,12 +173,15 @@ export interface FileRouteTypes {
     | '/demo'
     | '/growth'
     | '/impressum'
+    | '/industries'
     | '/privacy'
+    | '/resources'
     | '/terms'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/cases'
     | '/channels'
     | '/compliance'
     | '/contact'
@@ -155,13 +189,16 @@ export interface FileRouteTypes {
     | '/demo'
     | '/growth'
     | '/impressum'
+    | '/industries'
     | '/privacy'
+    | '/resources'
     | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CasesRoute: typeof CasesRoute
   ChannelsRoute: typeof ChannelsRoute
   ComplianceRoute: typeof ComplianceRoute
   ContactRoute: typeof ContactRoute
@@ -169,7 +206,9 @@ export interface RootRouteChildren {
   DemoRoute: typeof DemoRoute
   GrowthRoute: typeof GrowthRoute
   ImpressumRoute: typeof ImpressumRoute
+  IndustriesRoute: typeof IndustriesRoute
   PrivacyRoute: typeof PrivacyRoute
+  ResourcesRoute: typeof ResourcesRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -187,6 +226,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cases': {
+      id: '/cases'
+      path: '/cases'
+      fullPath: '/cases'
+      preLoaderRoute: typeof CasesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/channels': {
@@ -238,11 +284,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImpressumRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -258,6 +318,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CasesRoute: CasesRoute,
   ChannelsRoute: ChannelsRoute,
   ComplianceRoute: ComplianceRoute,
   ContactRoute: ContactRoute,
@@ -265,7 +326,9 @@ const rootRouteChildren: RootRouteChildren = {
   DemoRoute: DemoRoute,
   GrowthRoute: GrowthRoute,
   ImpressumRoute: ImpressumRoute,
+  IndustriesRoute: IndustriesRoute,
   PrivacyRoute: PrivacyRoute,
+  ResourcesRoute: ResourcesRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport

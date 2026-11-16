@@ -25,6 +25,7 @@ import smartHome from "@/assets/smart-home.jpg";
 import textiles from "@/assets/textiles.jpg";
 import { packages, workflow, owners } from "@/lib/product-demo";
 import { GrowthWheel, AnalyticsPanel, TeamArchitecture } from "./interactive-demos";
+import { CapabilityBar, Testimonials, HomeFAQ, ActionSummary } from "./discovery-pages";
 const features = [
   {
     icon: ScanLine,
@@ -146,6 +147,7 @@ export function HomePage() {
           <span className="illustrative-badge">Illustrative Demo · 场景示意</span>
         </div>
       </section>
+      <CapabilityBar />
       <section className="section capabilities">
         <div className="section-heading">
           <div>
@@ -184,6 +186,7 @@ export function HomePage() {
           ))}
         </div>
       </section>
+      <Testimonials />
       <section className="section split-section network-section">
         <div className="section-copy">
           <span className="eyebrow">01 / ONE CODE, MULTIPLE CHANNELS</span>
@@ -416,6 +419,7 @@ export function HomePage() {
           ))}
         </div>
       </section>
+      <HomeFAQ />
       <section className="section pricing-section" id="pricing">
         <div className="center-heading">
           <span className="eyebrow">A CONNECTION THAT GROWS WITH YOU</span>
@@ -474,6 +478,7 @@ export function HomePage() {
           <QuoteButton variant="outline">与我们聊聊</QuoteButton>
         </div>
       </section>
+      <ActionSummary />
     </>
   );
 }

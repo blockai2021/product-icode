@@ -1,4 +1,6 @@
 # Product iCode
+- [x] Stage five: audit punctuation spacing; expand navigation and add industry, case and resource pages.
+- [x] Stage five: add qualified capability metrics, simulated testimonials, FAQ and final action band; verify desktop/mobile.
 - [x] Build Chinese-first website and unified language navigation.
 - [x] Build interactive consumer, channels, compliance, growth and dashboard demos.
 - [x] Verify mobile/desktop, demo interactions and policy tests.

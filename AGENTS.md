@@ -38,3 +38,4 @@ use the editor.
 
 - Company and legal content uses shared browser-safe presentation modules and individual leaf routes; verified legal facts must replace clearly labelled drafts before final legal publication.
 - Decorative motion uses intersection observation and transform/opacity with reduced-motion fallbacks; numeric demo values stay stable in accessibility labels.
+- Discovery pages and homepage density blocks share a browser-safe presentation module; industry example links pass the existing validated demo search parameter, avoiding duplicated demo behavior.
