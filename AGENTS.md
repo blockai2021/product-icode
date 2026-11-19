@@ -30,6 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Project architecture
+- Keep DPP presentation and literal localized demo data in dedicated browser-safe modules; integration capabilities are illustrative and must not affect Connect data or functionality.
 - Content pages use individual TanStack file routes and a shared SiteShell; this keeps navigation typed and every page independently addressable.
 - Keep demonstrations browser-local without storage or network submissions; the requested simulated experience must not collect real personal data.
 - Share channel service logic in product-demo.ts and visuals in reusable presentation modules; this keeps purchase-channel behavior consistent across demos.

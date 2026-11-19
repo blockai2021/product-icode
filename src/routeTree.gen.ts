@@ -17,6 +17,7 @@ import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemoRouteImport } from './routes/demo'
+import { Route as DppRouteImport } from './routes/dpp'
 import { Route as GrowthRouteImport } from './routes/growth'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as IndustriesRouteImport } from './routes/industries'
@@ -64,6 +65,11 @@ const DemoRoute = DemoRouteImport.update({
   path: '/demo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DppRoute = DppRouteImport.update({
+  id: '/dpp',
+  path: '/dpp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GrowthRoute = GrowthRouteImport.update({
   id: '/growth',
   path: '/growth',
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/demo': typeof DemoRoute
+  '/dpp': typeof DppRoute
   '/growth': typeof GrowthRoute
   '/impressum': typeof ImpressumRoute
   '/industries': typeof IndustriesRoute
@@ -120,6 +127,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/demo': typeof DemoRoute
+  '/dpp': typeof DppRoute
   '/growth': typeof GrowthRoute
   '/impressum': typeof ImpressumRoute
   '/industries': typeof IndustriesRoute
@@ -137,6 +145,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/demo': typeof DemoRoute
+  '/dpp': typeof DppRoute
   '/growth': typeof GrowthRoute
   '/impressum': typeof ImpressumRoute
   '/industries': typeof IndustriesRoute
@@ -155,6 +164,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/demo'
+    | '/dpp'
     | '/growth'
     | '/impressum'
     | '/industries'
@@ -171,6 +181,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/demo'
+    | '/dpp'
     | '/growth'
     | '/impressum'
     | '/industries'
@@ -187,6 +198,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/demo'
+    | '/dpp'
     | '/growth'
     | '/impressum'
     | '/industries'
@@ -204,6 +216,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRoute
   DemoRoute: typeof DemoRoute
+  DppRoute: typeof DppRoute
   GrowthRoute: typeof GrowthRoute
   ImpressumRoute: typeof ImpressumRoute
   IndustriesRoute: typeof IndustriesRoute
@@ -270,6 +283,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dpp': {
+      id: '/dpp'
+      path: '/dpp'
+      fullPath: '/dpp'
+      preLoaderRoute: typeof DppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/growth': {
       id: '/growth'
       path: '/growth'
@@ -324,6 +344,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRoute,
   DemoRoute: DemoRoute,
+  DppRoute: DppRoute,
   GrowthRoute: GrowthRoute,
   ImpressumRoute: ImpressumRoute,
   IndustriesRoute: IndustriesRoute,

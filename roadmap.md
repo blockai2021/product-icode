@@ -1,11 +1,12 @@
 # Product iCode
+- [x] Add independent /dpp product page, navigation, localized demo and consultation entry; verify existing pages stay unchanged.
 - [x] Stage five: audit punctuation spacing; expand navigation and add industry, case and resource pages.
 - [x] Stage five: add qualified capability metrics, simulated testimonials, FAQ and final action band; verify desktop/mobile.
 - [x] Build Chinese-first website and unified language navigation.
 - [x] Build interactive consumer, channels, compliance, growth and dashboard demos.
 - [x] Verify mobile/desktop, demo interactions and policy tests.
 - [x] Replace company logos with ZIP originals and verify desktop/mobile headers, footers and favicon.
-- [ ] Confirm GitHub repository mapping; blocked because only internal Lovable Git remotes are available and no GitHub repository link was provided.
+- [ ] Confirm GitHub synchronization to the user-provided blockai2021/product-icode repository; blocked because only internal Lovable Git remotes are verifiable here.
 - [x] Add legal drafts, company/contact pages and four-column footer.
 - [x] Consolidate navigation into solutions dropdown and company link.
 - [x] Refine two-color palette, typography, numbering and demo badges.

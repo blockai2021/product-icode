@@ -4376,3 +4376,110 @@ td > svg {
   .industry-detail > img, .case-detail > img { max-height: 320px; object-fit: contain; }
 }
 @media (prefers-reduced-motion: reduce) { .solutions-dropdown { animation: none; } }
+
+/* Independent DPP product presentation; scoped to avoid changing Connect. */
+.dpp-container { max-width: 1320px; margin: auto; padding-inline: 44px; }
+.dpp-band { padding-block: 64px; border-top: 1px solid var(--border); }
+.dpp-soft-band, .dpp-contact { background: var(--muted); }
+.dpp-hero { background: var(--hero-surface); padding-block: 44px 40px; }
+.dpp-hero-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
+.dpp-hero-copy h1 { font-size: 38px; line-height: 1.3; margin-top: 14px; overflow-wrap: anywhere; }
+.dpp-subname { display: block; color: var(--primary); font-size: 13px; margin-block: 12px 24px; }
+.dpp-hero-copy h2 { font-size: 28px; line-height: 1.5; margin-bottom: 16px; }
+.dpp-hero-copy > p { font-size: 14px; }
+.dpp-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.dpp-actions > button { min-height: 43px; height: auto; white-space: normal; padding-block: 11px; }
+.dpp-value-tags { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted-foreground); margin-top: 24px; font-size: 11px; }
+.dpp-value-tags > span { display: inline-flex; gap: 6px; align-items: center; }
+.dpp-value-tags svg { color: var(--teal); }
+.dpp-badge { display: inline-flex; align-items: center; font-size: 9px; font-weight: 650; line-height: 1.6; color: var(--teal); background: var(--teal-soft); border-radius: 4px; padding: 4px 7px; }
+.dpp-passport { background: var(--card); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow-soft); overflow: hidden; min-width: 0; }
+.dpp-passport-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; padding: 16px 20px; border-bottom: 1px solid var(--border); font-size: 11px; }
+.dpp-passport-product { display: grid; grid-template-columns: 140px minmax(0, 1fr); align-items: center; padding: 20px; gap: 16px; }
+.dpp-passport-product img { width: 100%; height: auto; aspect-ratio: 3/2; object-fit: contain; }
+.dpp-passport-product h3 { font-size: 17px; margin: 7px 0; }
+.dpp-passport-product p { font-size: 12px; color: var(--primary); }
+.dpp-passport-product small { display: block; font-size: 10px; line-height: 1.7; color: var(--muted-foreground); margin-top: 5px; }
+.dpp-passport .eyebrow { font-size: 9px; }
+.dpp-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: calc(100% - 40px); height: auto; min-height: 44px; margin: 0 20px; padding: 4px; border-radius: 5px; }
+.dpp-tabs > button { min-width: 0; display: flex; align-items: center; gap: 5px; font-size: 11px; white-space: normal; height: 44px; padding-inline: 5px; }
+.dpp-tabs > button[data-state=active] { color: var(--primary); }
+.dpp-tab-content { margin: 0; padding: 14px 20px; min-height: 298px; }
+.dpp-passport-compact .dpp-tab-content { min-height: 245px; }
+.dpp-data-list { display: block; margin: 0; }
+.dpp-data-list > div { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 11px; line-height: 1.7; }
+.dpp-data-list > div:last-child { border: 0; }
+.dpp-data-list dt { color: var(--muted-foreground); }
+.dpp-data-list dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+.dpp-disclaimer { padding: 12px 20px; border-top: 1px solid var(--border); font-size: 10px; background: var(--muted); }
+.dpp-band h2 { margin-top: 10px; font-size: 28px; }
+.dpp-intro { max-width: 900px; margin-top: 18px; }
+.dpp-challenges { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 26px; margin-top: 34px; }
+.dpp-challenges > article { border-top: 2px solid var(--border); padding-top: 22px; }
+.dpp-challenges svg { color: var(--teal); }
+.dpp-challenges h3 { font-size: 14px; line-height: 1.6; margin: 16px 0 9px; }
+.dpp-challenges p { font-size: 12px; }
+.dpp-audience { font-size: 11px; padding-top: 22px; margin-top: 28px; border-top: 1px solid var(--border); }
+.dpp-capability-grid, .dpp-industry-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 32px; }
+.dpp-card { border: 1px solid var(--border); border-radius: 6px; background: var(--card); padding: 26px; min-width: 0; }
+.dpp-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; color: var(--primary); }
+.dpp-card-top span { color: var(--muted-foreground); font-size: 11px; }
+.dpp-card > small, .dpp-industry-body > small { color: var(--primary); font-size: 10px; display: block; margin-top: 12px; }
+.dpp-card h3 { font-size: 18px; line-height: 1.6; margin: 8px 0 12px; }
+.dpp-card p { font-size: 12px; }
+.dpp-note { margin-top: 24px; font-size: 11px; line-height: 1.9; }
+.dpp-workflow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.dpp-workflow > article { position: relative; border: 1px solid var(--border); border-radius: 6px; padding: 24px 20px; background: var(--card); }
+.dpp-workflow > .dpp-workflow-platform { background: var(--secondary); border-color: var(--primary); }
+.dpp-step { font-size: 12px; color: var(--primary); }
+.dpp-workflow h3 { font-size: 15px; margin-block: 16px 12px; }
+.dpp-workflow small { color: var(--primary); font-size: 10px; line-height: 1.8; display: block; min-height: 36px; }
+.dpp-workflow p { font-size: 12px; margin-top: 10px; }
+.dpp-workflow-arrow { position: absolute; right: -22px; top: 50%; color: var(--primary); }
+.dpp-demo-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 60px; align-items: center; }
+.dpp-demo-layout > div > .dpp-badge { margin-top: 24px; }
+.dpp-industry-card { padding: 0; overflow: hidden; }
+.dpp-industry-card > img { width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; display: block; }
+.dpp-industry-body { padding: 22px; }
+.dpp-regulation { display: block; color: var(--primary); font-size: 11px; margin-top: 20px; }
+.dpp-regulatory-scope { margin-top: 8px; font-size: 10px !important; }
+.dpp-integration-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.dpp-integration-grid article > svg { color: var(--primary); }
+.dpp-integration-grid ul { margin: 22px 0 0; padding: 0; list-style: none; }
+.dpp-integration-grid li { display: flex; align-items: flex-start; gap: 9px; font-size: 12px; margin-top: 12px; }
+.dpp-integration-grid li svg { color: var(--teal); }
+.dpp-integration-note { display: flex; gap: 16px; margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--border); }
+.dpp-integration-note svg { color: var(--teal); }
+.dpp-integration-note p { font-size: 12px; }
+.dpp-faq { max-width: 1000px; }
+.dpp-faq h2 { margin-bottom: 22px; }
+.dpp-faq p { font-size: 13px; }
+.dpp-contact .dpp-container { text-align: center; }
+.dpp-contact .dpp-intro { margin-inline: auto; }
+.dpp-contact .dpp-actions { justify-content: center; }
+@media (max-width: 1100px) {
+ .dpp-container { padding-inline: 22px; }
+ .dpp-hero-grid { gap: 28px; }
+ .dpp-hero-copy h1 { font-size: 32px; }
+ .dpp-passport-product { grid-template-columns: 110px minmax(0, 1fr); }
+ .dpp-challenges { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+ .dpp-demo-layout { gap: 30px; }
+}
+@media (max-width: 800px) {
+ .dpp-band { padding-block: 44px; }
+ .dpp-hero { padding-block: 30px; }
+ .dpp-hero-grid, .dpp-demo-layout { grid-template-columns: 1fr; gap: 32px; }
+ .dpp-hero-copy h1 { font-size: 30px; }
+ .dpp-hero-copy h2, .dpp-band h2 { font-size: 24px; }
+ .dpp-challenges { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+ .dpp-capability-grid, .dpp-industry-grid, .dpp-integration-grid, .dpp-workflow { grid-template-columns: 1fr; }
+ .dpp-workflow { gap: 28px; }
+ .dpp-workflow-arrow { top: auto; bottom: -25px; right: calc(50% - 9px); transform: rotate(90deg); }
+ .dpp-passport-product { padding: 16px; grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
+ .dpp-passport-product h3 { font-size: 15px; }
+ .dpp-tabs { width: calc(100% - 24px); margin-inline: 12px; }
+ .dpp-tabs > button { font-size: 10px; height: 54px; flex-direction: column; line-height: 1.4; }
+ .dpp-tab-content { padding-inline: 16px; }
+ .dpp-actions { flex-direction: column; align-items: stretch; }
+ .dpp-passport-top { padding-inline: 16px; }
+}

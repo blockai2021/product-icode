@@ -21,9 +21,11 @@ export function DemoBadge() {
 export function QuoteButton({
   children,
   variant = "default",
+  serviceInterest,
 }: {
   children: ReactNode;
   variant?: "default" | "outline" | "ghost";
+  serviceInterest?: "Product Ident DPP";
 }) {
   const [open, setOpen] = useState(false);
   const [sent, setSent] = useState(false);
@@ -46,14 +48,14 @@ export function QuoteButton({
             className="quote-modal"
             role="dialog"
             aria-modal="true"
-            aria-label="预约产品演示"
+            aria-label={serviceInterest ? t("预约 DPP 演示", "Book a DPP Demo", "DPP-Demo anfragen") : "预约产品演示"}
             onClick={(e) => e.stopPropagation()}
           >
             <Button
               variant="ghost"
               size="icon"
               className="modal-close"
-              aria-label="关闭"
+              aria-label={serviceInterest ? t("关闭", "Close", "Schließen") : "关闭"}
               onClick={() => setOpen(false)}
             >
               <X />
@@ -75,16 +77,16 @@ export function QuoteButton({
                 <span className="eyebrow">LET’S CONNECT</span>
                 <h2>
                   {t(
-                    "开启您的欧洲连接",
-                    "Connect your products to Europe",
-                    "Verbinden Sie Ihre Produkte mit Europa",
+                    serviceInterest ? "预约 DPP 演示" : "开启您的欧洲连接",
+                    serviceInterest ? "Book a DPP Demo" : "Connect your products to Europe",
+                    serviceInterest ? "DPP-Demo anfragen" : "Verbinden Sie Ihre Produkte mit Europa",
                   )}
                 </h2>
                 <p>
                   {t(
                     "告诉我们您的需求，预览产品演示申请。",
                     "Tell us about your needs. Preview a demo request.",
-                    "Erzählen Sie uns von Ihrem Bedarf.",
+                    serviceInterest ? "Erzählen Sie uns von Ihrem Bedarf. Vorschau einer Demo-Anfrage." : "Erzählen Sie uns von Ihrem Bedarf.",
                   )}
                 </p>
                 <form
@@ -94,8 +96,8 @@ export function QuoteButton({
                   }}
                 >
                   <label>
-                    {t("姓名", "Name")}
-                    <input required name="name" placeholder={t("您的姓名", "Your name")} />
+                    {t("姓名", "Name", "Name")}
+                    <input required name="name" placeholder={t("您的姓名", "Your name", serviceInterest ? "Ihr Name" : "Your name")} />
                   </label>
                   <label>
                     {t("工作邮箱", "Work email", "Geschäftliche E-Mail")}
@@ -106,16 +108,16 @@ export function QuoteButton({
                     <input
                       required
                       name="company"
-                      placeholder={t("您的品牌或公司", "Your brand or company")}
+                      placeholder={t("您的品牌或公司", "Your brand or company", serviceInterest ? "Ihre Marke oder Ihr Unternehmen" : "Your brand or company")}
                     />
                   </label>
                   <label>
                     {t("关注的服务", "Service interest", "Interesse")}
-                    <select>
-                      <option>Product iCode Connect</option>
+                    <select name="service" defaultValue={serviceInterest}>
+                      {serviceInterest ? <><option>Product Ident Connect</option><option>Product Ident DPP</option><option>Connect + DPP</option></> : <><option>Product iCode Connect</option>
                       <option>Digital Identity</option>
                       <option>Compliance Connect</option>
-                      <option>Local Growth</option>
+                      <option>Local Growth</option></>}
                     </select>
                   </label>
                   <small>
@@ -195,6 +197,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 <div className="solution-promotion"><span>{locale === "zh" ? "不确定从哪里开始？5 分钟在线 Demo" : locale === "de" ? "Wo anfangen? 5-Minuten-Demo" : "Where to start? A 5-minute demo"}</span><Button asChild variant="link"><Link to="/demo" onClick={() => { setMenu(false); setSolutionsOpen(false); }}>{locale === "zh" ? "打开体验" : locale === "de" ? "Demo öffnen" : "Open demo"}<ArrowRight size={14} /></Link></Button></div>
               </div>}
             </div>
+            <Link to="/dpp" className={path === "/dpp" ? "active" : ""} onClick={() => { setMenu(false); setSolutionsOpen(false); }}>DPP</Link>
             {discoveryNav.map(n => <Link key={n.to} to={n.to} className={path === n.to ? "active" : ""} onClick={() => { setMenu(false); setSolutionsOpen(false); }}>{n[locale]}</Link>)}
             <div className="mobile-nav-cta"><QuoteButton>{locale === "zh" ? "预约演示" : locale === "de" ? "Demo buchen" : "Book a demo"}</QuoteButton><small>{locale === "zh" ? "欧洲联系电话待核实补充" : "Europe phone: pending verification"}</small></div>
           </nav>
@@ -220,7 +223,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <footer className="site-footer">
         <div className="footer-grid">
           <div className="footer-brand"><Link to="/" className="brand"><BrandLogo /></Link><p>One Code. Every Channel.<br />Local Growth.</p><span>中国 × 德国 · 连接欧洲</span></div>
-          <div><h3>{locale === "zh" ? "解决方案" : "Solutions"}</h3>{nav.map(n => <Link to={n.to} key={n.to}>{n[locale]}</Link>)}<Link to="/demo">{locale === "zh" ? "产品演示" : "Product demo"}<ArrowUpRight size={13} /></Link></div>
+          <div><h3>{locale === "zh" ? "解决方案" : "Solutions"}</h3>{nav.map(n => <Link to={n.to} key={n.to}>{n[locale]}</Link>)}<Link to="/dpp">DPP</Link><Link to="/demo">{locale === "zh" ? "产品演示" : "Product demo"}<ArrowUpRight size={13} /></Link></div>
            <div><h3>{locale === "zh" ? "公司" : "Company"}</h3>{discoveryNav.map(n => <Link to={n.to} key={n.to}>{n[locale]}</Link>)}<Link to="/contact">{locale === "zh" ? "联系我们" : "Contact us"}</Link><QuoteButton variant="ghost">{locale === "zh" ? "预约演示" : "Book a demo"}</QuoteButton></div>
           <div><h3>{locale === "zh" ? "法务与信任" : "Legal & trust"}</h3><Link to="/privacy">隐私政策 / Privacy Policy</Link><Link to="/impressum">Impressum</Link><Link to="/terms">服务条款 / Terms</Link><small>{locale === "zh" ? "法定信息待核实补充" : "Legal details pending verification"}</small></div>
         </div>
